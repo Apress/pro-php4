@@ -1,0 +1,54 @@
+$formEngine = new FormEngine();
+
+$form = $formEngine->create("form", "Form Name", $PHP_SELF, "post");
+
+$form->addElement(new FormHeader('General Information'));
+
+$form->addElement(new TextField('name', '', 'Name', ALPHA,"You have failed to enter your name", true));
+
+$form->addElement(new HiddenField('userID', '1'));
+
+$form->addElement(new PasswordField('password', '', 'Password',PASSWORD,"You have failed to choose a password larger than 4 characters",true));
+
+$form->addElement(new TextField('email', '', 'Email Address', EMAIL,"You have entered your email address incorrectly", true));
+
+$form->addElement(new TextArea('description', '', 'Description', ALPHANUMERIC, 
+        "You have failed to enter any description about yourself", 
+        false, array("rows" => 10, "cols" => 40,)));
+
+$form->addElement(new DateField('startdate', '', 'Start Date',false));
+
+$form->addElement(new FileBrowser('file', 'File', false));
+
+$combo = new ComboBox('wagetype', 'S', 'Wage Type', true);
+$combo->add('Hourly', 'H');
+$combo->add('Salary', 'S');
+$form->addElement($combo);
+
+$combo = new MultiComboBox('position', $position, 'Position', false);
+$combo->add('Planner', 'P');
+$combo->add('Manager', 'M');
+$combo->add('Engineer', 'E');
+$combo->add('Analyst', 'A');
+$form->addElement($combo);
+
+$form->addButton(new SubmitButton('submit', 'Submit'));
+$form->addButton(new ResetButton('reset', 'Reset'));
+
+if ($submit == 'Submit') {
+    $isValid = $form->validate();
+
+    if ($isValid) {
+        echo("everything okay");
+        // start processing info into database or whatever
+    } else {
+        echo($form->getErrorMessage());
+        $form->display();
+        $formEngine->displayJavascriptLibraryCode();
+        echo($form->generateJavaScriptCode());
+    }
+} else {
+    $formEngine->displayJavascriptLibraryCode();
+    $form->display();
+    echo($form->generateJavaScriptCode());
+}

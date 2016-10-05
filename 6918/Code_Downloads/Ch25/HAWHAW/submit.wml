@@ -1,0 +1,53 @@
+<?php
+
+include("hawhaw.inc");
+
+$page = new HAW_deck("E-Mail Submission");
+
+if (!$name) {
+    $text = new HAW_text("You must input your name.");
+    $text->set_br(1);
+    $link = new HAW_link("Back", "input.wml");
+
+    $page->add_text($text);
+    $page->add_link($link);
+    $page->create_page();
+    exit;
+}
+
+if (!$email) {
+    $text = new HAW_text("You must input your email addy.");
+    $text->set_br(1);
+    $link = new HAW_link("Back", "input.wml");
+
+    $page->add_text($text);
+    $page->add_link($link);
+    $page->create_page();
+    exit;
+}
+
+if (!$comment) {
+    $text = new HAW_text("Please tell us what you think!");
+    $text->set_br(1);
+    $link = new HAW_link("Back", "input.wml");
+
+    $page->add_text($text);
+    $page->add_link($link);
+    $page->create_page();
+    exit;
+}
+
+$body .= "Name:  $name\n";
+$body .= "E-Mail:  $email\n\n";
+$body .= "Comments:\n$comment\n";
+
+$text = new HAW_text("Thank you for your input!");
+$text->set_br(1);
+$link = new HAW_link("Home", "homepage.wml");
+
+$page->add_text($text);
+$page->add_link($link);
+$page->create_page();
+
+mail("devon@sitetronics.com", "WAPMail", $body, "From: $email");
+?>

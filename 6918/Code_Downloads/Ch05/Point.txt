@@ -1,0 +1,32 @@
+class Point 
+{
+    var $x;
+    var $y;
+    var $color;
+
+    function Point($x = 0, $y = 0) 
+    {
+        $this->moveTo($x, $y);
+    }
+
+    function moveTo($x, $y) {
+        $this->x = $x;
+        $this->y = $y;
+    }
+
+    function transposeX($amount) {
+        $this->x += $amount;
+    }
+
+    function transposeY($amount) {
+        $this->y += $amount;
+    }
+
+    function transpose($xAmount, $yAmount) {
+        $this->transposeX($xAmount);
+        $this->transposeY($yAmount);
+    }
+
+    function setColor($color) {$this->color = $color;}
+    function draw() {…}
+}

@@ -1,0 +1,34 @@
+<?php
+
+include("hawhaw.inc");	
+
+$page = new HAW_deck("WAPMail");
+
+$form = new HAW_form("submit.wml");
+
+$text = new HAW_text("Please take the time to fill this out");
+$text->set_br(2);
+
+$nameInput = new HAW_input("name", "", "Your Name");
+$nameInput->set_size(10);
+$nameInput->set_maxlength(25);
+$emailInput = new HAW_input("email", "", "Your E-Mail");
+$emailInput->set_size(15);
+$emailInput->set_maxlength(100);
+
+$comment = new HAW_input("comment", "", "Short Comment");
+$comment->set_size(15);
+$comment->set_maxlength(100);
+
+$submit = new HAW_submit("Submit", "submit");
+
+$form->add_input($nameInput);
+$form->add_input($emailInput);
+$form->add_input($comment);
+
+$form->add_submit($submit);
+
+$page->add_text($text);
+$page->add_form($form);
+$page->create_page();
+?>

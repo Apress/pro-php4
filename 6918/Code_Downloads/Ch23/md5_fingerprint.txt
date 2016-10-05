@@ -1,0 +1,4 @@
+<?php
+
+$fingerprint = md5($password);
+?>

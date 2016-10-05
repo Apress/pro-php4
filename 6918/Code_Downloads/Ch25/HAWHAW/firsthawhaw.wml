@@ -1,0 +1,13 @@
+<?php
+
+include("hawhaw.inc");
+
+$page = new HAW_deck("Simple Page Made With HAWHAW");
+
+$text = new HAW_text("Hello Users!", HAW_TEXTFORMAT_BOLD);
+$text->set_br(3);
+
+$page->add_text($text);
+
+$page->create_page();
+?>

@@ -1,0 +1,26 @@
+<Recordset>
+  <Travelpackage name="a">
+    <Country_name>Cuba</Country_name>
+    <City>Cayo Coco</City>
+    <Resort>Club Tryp Cayo Coco</Resort>
+    <Resort_rating>4</Resort_rating>
+    <Resort_typeofholiday>beach</Resort_typeofholiday>
+    <Resort_watersports>true</Resort_watersports>
+    <Resort_meals>true</Resort_meals>
+    <Resort_drinks>true</Resort_drinks>
+    <Package_dateofdep>5/8/98</Package_dateofdep>
+    <Package_price>879</Package_price>
+  </Travelpackage>
+  <Travelpackage name="b">
+    <Country_name>Cuba</Country_name>
+    <City>Varadero</City>
+    <Resort>Sol Club Paleras</Resort>
+    <Resort_rating>3</Resort_rating>
+    <Resort_typeofholiday>beach</Resort_typeofholiday>
+    <Resort_watersports>false</Resort_watersports>
+    <Resort_meals>true</Resort_meals>
+    <Resort_drinks>false</Resort_drinks>
+    <Package_dateofdep>5/1/98</Package_dateofdep>
+    <Package_price>779</Package_price>
+  </Travelpackage>
+</Recordset>

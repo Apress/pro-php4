@@ -1,0 +1,15 @@
+<?php
+
+include("hawhaw.inc");
+
+$page = new HAW_deck("Simple Page Made With HAWHAW");
+
+$text = new HAW_text("Hello Users!", HAW_TEXTFORMAT_BOLD);
+$text->set_br(3);
+
+$link = new HAW_link("SiteTronics", "http://www.sitetronics.com/");
+
+$page->add_text($text);
+$page->add_link($link);
+$page->create_page();
+?>
